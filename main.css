@@ -255,7 +255,7 @@ select {
 
 img {
   display: inline;
-  width: 90px;
+  width: 85px;
   margin: 4px;
 }
 /* the style of the image (not default) */
@@ -287,7 +287,7 @@ img {
 .otherProperty.default:hover {
   position: relative;
   filter: grayscale(0);
-  transform: scale(1.5);
+  transform: scale(1.7);
   border: 2px solid rgba(241, 71, 71, 0.9);
   border-left: 10px solid rgba(241, 71, 71, 0.6);
   border-top: 5px solid rgba(241, 71, 71, 0.6);

@@ -164,6 +164,7 @@ d3.csv("data.csv").then(function (dataset) {
 
   function updateGridImages() {
     // get the "value" of the selected option
+    // update intro text
     var selectedQuestion = d3.select(this).property("value");
     CleanIntro();
     if (selectedQuestion == "default") {
