@@ -9,7 +9,7 @@ d3.csv("data.csv").then(function (dataset) {
     glass: "Do they wear glasses?",
     zodiac: "What are the zodiac signs of them?",
     young: "What were they looked like when they were young/ younger?",
-    old: "Which of them had passed away?",
+    old: "How old are they?",
   };
   const questions_life = Object.values(questionsDict_life);
   const keys_life = Object.keys(questionsDict_life);
@@ -154,6 +154,7 @@ d3.csv("data.csv").then(function (dataset) {
   //#region results of OptionChanged
   var SelectedQuestion;
   const questionsWithMoreInfo = [
+    "old",
     "educationGeneral",
     "educationAbroad",
     "otherCareer",
@@ -252,12 +253,17 @@ d3.csv("data.csv").then(function (dataset) {
 
   //#region results of ImgHovered
   //#region selectUpdatedArea
+
+  // age
+  const ageSummary = d3.select("#ageSummary").data(dataset);
+  const ageValue = d3.select("#ageValue").data(dataset);
+  const ageOtherInfo = d3.select("#ageOtherInfo").data(dataset);
+  const ageArray = [ageSummary, ageValue, ageOtherInfo];
+
   // educationGeneral & educationAbroad
   const textsOfDefault = "Hover over to learn more info ...";
   const textsOfDefault_0 = "Hover over to see who they are ...";
-  const defaultTexts = d3
-    .select("#defaultTexts")
-    .text("Hover over to see who they are ...");
+  const defaultTexts = d3.select("#defaultTexts").text(textsOfDefault_0);
   const education_U1 = d3.select("#education_U1").data(dataset);
   const education_A1 = d3.select("#education_A1").data(dataset);
   const education_U2 = d3.select("#education_U2").data(dataset);
@@ -444,7 +450,12 @@ d3.csv("data.csv").then(function (dataset) {
     }
 
     // extract more info by hovering over
-    if (SelectedQuestion == "educationGeneral") {
+    if (SelectedQuestion == "old") {
+      defaultTexts.text("");
+      ageSummary.text(d.ageSummary);
+      ageValue.text(d.ageValue);
+      ageOtherInfo.text(d.ageOtherInfo);
+    } else if (SelectedQuestion == "educationGeneral") {
       defaultTexts.text("");
       education_U1.text(">> " + d.educationGeneral_U1);
       education_A1.text(d.educationGeneral_A1);
@@ -523,6 +534,7 @@ d3.csv("data.csv").then(function (dataset) {
       }
     }
     if ($.inArray(SelectedQuestion, questionsWithMoreInfo) != -1) {
+      ageArray.forEach(removeTexts);
       d3.select("#educationAbroad_img").remove();
       educationArray.forEach(removeTexts);
       otherCareerArray.forEach(removeTexts);
