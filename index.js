@@ -31,11 +31,10 @@ d3.csv("data.csv").then(function (dataset) {
     default: "Select a question about Career...",
     otherCareer:
       "Did they consider other careers before becoming an architect?",
-    travel: "Were there some important trips mentioned in their biography?",
+    travel: "Did they mentioned important trips?",
     work: "Did they work with/for other laureates?",
     esTime: "When did they establish their own practice after graduation?",
-    wonTime:
-      "When did they receive the prize after starting their own practice?",
+    wonTime: "When did they won the prize after starting their own practice?",
     age: "How old were they when they won the prize?",
   };
 
