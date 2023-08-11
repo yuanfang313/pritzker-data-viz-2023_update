@@ -232,7 +232,7 @@ select {
   filter: grayscale(0);
 }
 
-/* tooltip */
+/* || tooltip */
 .tooltip {
   position: absolute;
   top: 50px;
@@ -302,7 +302,7 @@ select {
   transform: skew(-10deg);
 }
 
-/* summary */
+/* || summary */
 
 .summaryContainer {
   margin: 2% auto;
