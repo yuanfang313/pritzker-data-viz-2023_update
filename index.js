@@ -254,10 +254,12 @@ d3.csv("data.csv").then(function (dataset) {
   //#region selectUpdatedArea
 
   // age
+  const endYear = d3.select("#endYear").data(dataset);
   const ageSummary = d3.select("#ageSummary").data(dataset);
   const ageValue = d3.select("#ageValue").data(dataset);
   const ageOtherInfo = d3.select("#ageOtherInfo").data(dataset);
-  const ageArray = [ageSummary, ageValue, ageOtherInfo];
+
+  const ageArray = [endYear, ageSummary, ageValue, ageOtherInfo];
 
   // educationGeneral & educationAbroad
   const textsOfDefault = "Hover over to learn more info ...";
@@ -451,6 +453,7 @@ d3.csv("data.csv").then(function (dataset) {
     // extract more info by hovering over
     if (SelectedQuestion == "old") {
       defaultTexts.text("");
+      endYear.text(d.yearOfEnd);
       ageSummary.text(d.ageSummary);
       ageValue.text(d.ageValue);
       ageOtherInfo.text(d.ageOtherInfo);
