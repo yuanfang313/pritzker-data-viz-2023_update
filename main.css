@@ -274,7 +274,7 @@ select {
 
 /* the style of tooltip when it is not default mode of each section */
 .otherProperty:hover ~ .tooltip {
-  top: 60px;
+  top: 92px;
   left: -25px;
   background: rgba(255, 255, 255, 0.9);
   transform: skew(0deg);
